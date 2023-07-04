@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="lineStyle" TargetType="Line">
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="Stretch" Value="Fill" />
+        <Setter Property="Grid.ZIndex" Value="100" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="horizontalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+        <Setter Property="X2" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Grid.ColumnSpan"
+                    Value="{Binding
+                                Path=ColumnDefinitions.Count,
+                                RelativeSource={RelativeSource AncestorType=Grid}}" />
+    </Style>
+
+    <Style x:Key="horizontalLineStyle0" TargetType="Line" BasedOn="{StaticResource horizontalLineStyle}">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,-1,0,0" />
+    </Style>
+
+    <Style x:Key="verticalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+        <Setter Property="Y2" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Grid.RowSpan"
+                    Value="{Binding
+                                Path=RowDefinitions.Count,
+                                RelativeSource={RelativeSource AncestorType=Grid}}" />
+    </Style>
+    <Style x:Key="verticalLineStyle0" TargetType="Line" BasedOn="{StaticResource verticalLineStyle}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="-1,0,0,0" />
+    </Style>
+</ResourceDictionary>
