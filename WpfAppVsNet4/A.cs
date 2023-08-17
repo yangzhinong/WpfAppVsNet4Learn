@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace WpfAppVsNet4;
 
-namespace WpfAppVsNet4
+public partial class A
 {
-    public partial class A
+    public A()
+    { }
+
+    public A(int id)
+    { }
+
+    public A(string name, int id)
     {
     }
 }

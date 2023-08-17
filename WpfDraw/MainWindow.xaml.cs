@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfDraw
 {
@@ -23,6 +14,8 @@ namespace WpfDraw
         public MainWindow()
         {
             InitializeComponent();
+            var ss = BitConverter.IsLittleEndian;
+            Console.WriteLine(ss);
         }
 
         private void drawingSurface_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -115,7 +108,11 @@ namespace WpfDraw
             using (DrawingContext dc = visual.RenderOpen())
             {
                 Brush brush = drawingBrush;
-                if (isSelected) brush = selectedDrawingBrush;
+                if (isSelected)
+                {
+                    brush = selectedDrawingBrush;
+                }
+
                 dc.DrawRectangle(brush, drawingPen,
                     new Rect(topLeftCorner, squareSize));
             }

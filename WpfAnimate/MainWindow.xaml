@@ -1,0 +1,71 @@
+﻿<Window x:Class="WpfAnimate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAnimate"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500">
+    <Window.Resources>
+        <Style x:Key="GrowButtonStyle">
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                 To="250" Duration="0:0:5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+                <EventTrigger RoutedEvent="ListBoxItem.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard HandoffBehavior="SnapshotAndReplace">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                                 BeginTime="0:0:0.5" Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="dd">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard FillBehavior="Stop" SpeedRatio="2">
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                             To="300"   Duration="0:0:5" />
+                                <DoubleAnimation Storyboard.TargetProperty="Height"
+                                             To="300"   Duration="0:0:2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Canvas>
+            <Button Width="50" Height="20" Name="cmdGrow"
+                    MouseEnter="cmdGrow_MouseEnter"
+                    MouseLeave="cmdGrow_MouseLeave"
+                    >Hello</Button>
+
+            <Button Canvas.Top="50" Width="50" Height="20" Style="{StaticResource dd}" Content=" Grow" />
+
+            <ListBox Canvas.Top="100" Width="100" Style="{StaticResource GrowButtonStyle}">
+                <ListBoxItem>
+                    <Button>Hello</Button>
+                </ListBoxItem>
+                <ListBoxItem>World</ListBoxItem>
+            </ListBox>
+
+            <Button Click="Button_Click"
+                    >Start</Button>
+        </Canvas>
+    </Grid>
+</Window>
