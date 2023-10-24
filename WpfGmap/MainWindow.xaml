@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfGmap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGmap"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <ImageBrush x:Key="car" ImageSource="car.jpg" Stretch="Uniform" TileMode="None"/>
+        </Grid.Resources>
+        <GroupBox x:Name="mapgroup" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <local:MapControl x:Name="ucMap"  Zoom="13" MaxZoom="24" MinZoom="1" />
+        </GroupBox>
+        <Rectangle Width="10" Height="20" Fill="Red" HorizontalAlignment="Center" ToolTip="Hello world">
+            
+        </Rectangle>
+        
+    </Grid>
+</Window>

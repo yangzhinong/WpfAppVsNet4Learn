@@ -15,18 +15,18 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="BackContent"
                                                          Storyboard.TargetProperty="Opacity"
-                                                         To="0" Duration="0">
+                                                         To="0">
                                         </DoubleAnimation>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Flipped">
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="FlipButtonTransform"
-                                                         Storyboard.TargetProperty="Angle"
-                                                         To="90" Duration="0" />
-                                        <DoubleAnimation Storyboard.TargetName="FrontContent"
-                                                         Storyboard.TargetProperty="Opacity"
-                                                         To="0" Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetName="FrontContentTransform"
+                                                         Storyboard.TargetProperty="ScaleY"
+                                                        To="0" />
+                                        <DoubleAnimation Storyboard.TargetName="FrontContentEffect"
+                                                         Storyboard.TargetProperty="Radius"
+                                                         To="30" Duration="0" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -41,8 +41,24 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 Background="{TemplateBinding Background}"
                                 Name="FrontContent">
-                            <ContentPresenter Content="{TemplateBinding FrontContent}">
-                            </ContentPresenter>
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="FrontContentTransform" />
+                            </Border.RenderTransform>
+                            <Border.Effect>
+                                <BlurEffect x:Name="FrontContentEffect" Radius="0" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Content="{TemplateBinding FrontContent}">
+                                </ContentPresenter>
+
+                                <Rectangle Grid.Row="1" Stretch="Fill" Fill="LightSteelBlue" />
+                                <ToggleButton Grid.Row="1" x:Name="FlipButton" Margin="5" Padding="15,0"
+                                              Content="^" FontWeight="Bold" FontSize="12" HorizontalAlignment="Right" />
+                            </Grid>
                         </Border>
 
                         <!-- This is the back content. -->
@@ -54,23 +70,6 @@
                             <ContentPresenter Content="{TemplateBinding BackContent}">
                             </ContentPresenter>
                         </Border>
-
-                        <ToggleButton Grid.Row="1" Name="FlipButton" Margin="0,10,0,0"
-                                      RenderTransformOrigin="0.5,0.5"
-                                      Width="19" Height="19">
-                            <ToggleButton.RenderTransform>
-                                <RotateTransform x:Name="FlipButtonTransform" Angle="-90" />
-                            </ToggleButton.RenderTransform>
-                            <ToggleButton.Template>
-                                <ControlTemplate>
-                                    <Grid>
-                                        <Ellipse Stroke="#ffa9a9a9" Fill="AliceBlue" />
-                                        <Path Data="M1,1.5 L4.5,5 8,1.5" Stroke="#ff666666" StrokeThickness="2"
-                                              HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </ToggleButton.Template>
-                        </ToggleButton>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

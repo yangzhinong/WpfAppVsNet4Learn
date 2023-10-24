@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,6 +56,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AutoSelectTextBox\Implementation\AutoSelectBehaviorEnum.cs" />
+    <Compile Include="AutoSelectTextBox\Implementation\AutoSelectTextBox.cs" />
+    <Compile Include="AutoSelectTextBox\Implementation\QueryMoveFocusEventArgs.cs" />
+    <Compile Include="ButtonSpinner\Implementation\ButtonSpinner.cs" />
+    <Compile Include="ButtonSpinner\Implementation\SpinDirection.cs" />
+    <Compile Include="ButtonSpinner\Implementation\SpinEventArgs.cs" />
+    <Compile Include="ButtonSpinner\Implementation\Spinner.cs" />
+    <Compile Include="ButtonSpinner\Implementation\ValidSpinDirections.cs" />
+    <Compile Include="Chromes\Implementation\ButtonChrome.cs" />
+    <Compile Include="ResourceKeys.cs" />
+    <Compile Include="TreeHelper.cs" />
+    <Compile Include="CustomDrawnDecorator.cs" />
+    <Compile Include="CustomDrawnElement.cs" />
+    <Compile Include="MainWindowBreakPanel.xaml.cs">
+      <DependentUpon>MainWindowBreakPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WrapBreakPanel.cs" />
+    <Page Include="MainWindowBreakPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,15 +89,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CanvasClone.cs" />
     <Compile Include="ColorPicker.cs" />
     <Compile Include="FlipPanel.cs" />
+    <Compile Include="MainWindow - Copy.xaml.cs">
+      <DependentUpon>MainWindow - Copy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\ButtonChrome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ButtonSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\ColorPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\FlipPanel - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\FlipPanel.xaml">
       <SubType>Designer</SubType>

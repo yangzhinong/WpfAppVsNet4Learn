@@ -23,5 +23,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TreeView VirtualizingStackPanel.IsVirtualizing="True">
+        </TreeView>
+        <ListBox VirtualizingStackPanel.CacheLength="100,500"
+                 VirtualizingStackPanel.CacheLengthUnit="Item"
+                 VirtualizingStackPanel.ScrollUnit="Item"
+                 ScrollViewer.IsDeferredScrollingEnabled="True">
+        </ListBox>
     </Grid>
 </Window>

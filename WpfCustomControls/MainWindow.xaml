@@ -3,34 +3,69 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfCustomControls"
+        xmlns:local="clr-namespace:WpfCustomControls" xmlns:chromes="clr-namespace:WpfCustomControls.Chromes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <local:FlipPanel x:Name="panel"  BorderBrush="DarkOrange"
-                         BorderThickness="3" CornerRadius="4" Margin="10">
-            <local:FlipPanel.FrontContent>
-                <StackPanel Margin="6">
-                    <TextBlock TextWrapping="Wrap" Margin="3" FontSize="16"
-                               Foreground="DarkOrange">This is front side of the FlipPanel.</TextBlock>
-                    <Button Margin="3" Padding="3" Content="Button One" />
-                    <Button Margin="3" Padding="3" Content="Button Two" />
-                    <Button Margin="3" Padding="3" Content="Button Three" />
-                    <Button Margin="3" Padding="3" Content="Button Four" />
+        <Grid.Resources>
+            <ControlTemplate x:Key="ButtonWidthCustChrom">
+                <local:CustomDrawnDecorator BackgroundColor="LightGreen">
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                      Content="{TemplateBinding ContentControl.Content}" />
+                </local:CustomDrawnDecorator>
+            </ControlTemplate>
+        </Grid.Resources>
+        <StackPanel>
+            <Button Template="{StaticResource ButtonWidthCustChrom}" Margin="3" Padding="10">
+                Test Custom
+            </Button>
+
+            <Button  Margin="3">
+                Test Normal
+            </Button>
+
+            <Button Template="{StaticResource ButtonWidthCustChrom}" Margin="3" Padding="10">
+                Test Custom
+            </Button>
+
+            <local:AutoSelectTextBox AutoSelectBehavior="OnFocus"  AutoWordSelection="True">Hello world</local:AutoSelectTextBox>
+            <local:AutoSelectTextBox AutoSelectBehavior="OnFocus">It is sample</local:AutoSelectTextBox>
+            <local:ButtonSpinner Focusable="True"  Height="40" ShowSpinner="True" Spin="ButtonSpinner_Spin" x:Name="spin"  >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="txtHour" Focusable="False"  MouseDown="MouseDown">00</TextBlock>
+                    <TextBlock>:</TextBlock>
+                    <TextBlock x:Name="txtMinute" Focusable="False" MouseDown="MouseDown">00</TextBlock>
+                    <TextBlock Focusable="False">:</TextBlock>
+                    <TextBlock x:Name="txtSecond" MouseDown="MouseDown">00</TextBlock>
                 </StackPanel>
-            </local:FlipPanel.FrontContent>
-            <local:FlipPanel.BackContent>
-                <Grid Margin="6">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <TextBlock TextWrapping="Wrap" Margin="3" FontSize="16"
-                               Foreground="DarkOrange">This is back side of the FlipPanel.</TextBlock>
-                    <Button Grid.Row="2" Margin="3" Padding="10" Content="Flip back to Front"
-                            Click="cmdFlipClick" />
-                </Grid>
-            </local:FlipPanel.BackContent>
-        </local:FlipPanel>
+                
+            </local:ButtonSpinner>
+            <local:ColorPicker Height="50" Width="100" />
+            <RepeatButton>
+                <RepeatButton.Template>
+                    <ControlTemplate>
+                        <chromes:ButtonChrome  Margin="2" 
+                                  Width="20"
+                                  Height="20"
+                                  RenderNormal="True"
+                                  BorderBrush="{TemplateBinding BorderBrush}" 
+                                  Background="{TemplateBinding Background}"
+                                  RenderEnabled="{TemplateBinding IsEnabled}"
+                                  RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                  HorizontalContentAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  >
+
+                            <Path  Data="M0,5 L4.5,.5 9,5 6,5 4.5,3.5 3,5 z" Stroke="Black" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </Path>
+                        </chromes:ButtonChrome>
+                    </ControlTemplate>
+                </RepeatButton.Template>
+            </RepeatButton>
+           
+        </StackPanel>
     </Grid>
 </Window>

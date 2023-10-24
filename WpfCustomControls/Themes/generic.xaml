@@ -4,5 +4,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/themes/ColorPicker.xaml" />
         <ResourceDictionary Source="/themes/FlipPanel.xaml" />
+        <ResourceDictionary Source="/themes/ButtonChrome.xaml" />
+        <ResourceDictionary Source="/themes/ButtonSpinner.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
