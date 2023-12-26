@@ -4,7 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WpfAppVsNet4"
-             mc:Ignorable="d"
+
+            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+
+
+    mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Border x:Name="bdMain" CornerRadius="10" Background="White"
             BorderThickness="1" Margin="10">
@@ -35,7 +40,10 @@
                        Text="{Binding Body}"></TextBlock>
 
             <TextBlock x:Name="txt" Grid.Row="1" Foreground="Red" HorizontalAlignment="Right"
-                       Text= "{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                       Text= "{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
+              
+                       />
+           
             <Button Command="Copy" />
         </Grid>
     </Border>

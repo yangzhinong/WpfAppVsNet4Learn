@@ -6,16 +6,20 @@
         xmlns:local="clr-namespace:WpfGmap"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid >
         <Grid.Resources>
             <ImageBrush x:Key="car" ImageSource="car.jpg" Stretch="Uniform" TileMode="None"/>
         </Grid.Resources>
         <GroupBox x:Name="mapgroup" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <local:MapControl x:Name="ucMap"  Zoom="13" MaxZoom="24" MinZoom="1" />
         </GroupBox>
-        <Rectangle Width="10" Height="20" Fill="Red" HorizontalAlignment="Center" ToolTip="Hello world">
+        <Rectangle  Width="10" Height="20" Fill="Red" HorizontalAlignment="Center" ToolTip="Hello world">
             
         </Rectangle>
-        
+        <TextBlock FontFamily="ari"  TextDecorations="Underline" />
+        <TextBox FontFamily="ari" />
+        <StackPanel >
+            
+        </StackPanel>
     </Grid>
 </Window>

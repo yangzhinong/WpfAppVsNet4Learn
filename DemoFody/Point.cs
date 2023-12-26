@@ -1,12 +1,15 @@
 ﻿namespace DemoFody
 {
     [Equals]
+    
     public class Point
     {
         public int X { get; set; }
         public int Y { get; set; }
         [IgnoreDuringEquals]
         public int Z { get; set; }
+
+        //public int Dd { get; init; }
 
         [CustomEqualsInternal]
         bool CustomLogic(Point other)

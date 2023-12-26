@@ -53,6 +53,12 @@ namespace WpfGmap
 
         private void UcMap_OnMapTypeChanged(GMapProvider type)
         {
+            
+        }
+
+        private void TextBox_PreviewKeyDown()
+        {
+
         }
     }
 }

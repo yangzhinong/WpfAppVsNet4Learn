@@ -1,35 +1,37 @@
 ﻿using System;
+using System.Security;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace WpfAppVsNet4
+namespace WpfAppVsNet4;
+
+/// <summary>
+/// Interaction logic for Msg.xaml
+/// </summary>
+public partial class Msg : UserControl
 {
-    /// <summary>
-    /// Interaction logic for Msg.xaml
-    /// </summary>
-    public partial class Msg : UserControl
+    public Msg(VM_Msg vm)
     {
-        public Msg(VM_Msg vm)
-        {
-            InitializeComponent();
-            this.DataContext = vm;
-        }
-
-        private void bdMain_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            VisualStateManager.GoToState(this, "HasRead", false);
-
-            var bindExp = BindingOperations.GetBindingExpression(txt, TextBlock.TextProperty);
-            var s = bindExp.ToString();
-            Console.WriteLine("");
-        }
+        InitializeComponent();
+        this.DataContext = vm;
     }
 
-    public class VM_Msg
+    private void bdMain_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        public string Title { get; set; }
-        public string Body { get; set; }
+        VisualStateManager.GoToState(this, "HasRead", false);
+
+        var bindExp = BindingOperations.GetBindingExpression(txt, TextBlock.TextProperty);
+        var s = bindExp.ToString();
+        Console.WriteLine("");
+
+        SecureString secureString = new SecureString();
     }
+}
+
+public class VM_Msg
+{
+    public string Title { get; set; }
+    public string Body { get; set; }
 }
