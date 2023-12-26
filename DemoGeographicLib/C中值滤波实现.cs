@@ -1,12 +1,21 @@
 ﻿namespace DemoGeographicLib;
-
-internal class Program
+internal class C中值滤波实现
 {
-    static void Main(string[] args)
+    public static void Do()
     {
-        C拟合圆.Do();
-        Console.Read();
+        // 示例数据
+        double[] noisySignal = { 1, 2, 3, 10, 5, 6, 7, 8, 9, 4 };
 
+        // 中值滤波窗口大小
+        int windowSize = 3;
+
+        // 中值滤波处理
+        double[] filteredSignal = MedianFilter(noisySignal, windowSize);
+
+        // 打印结果
+        Console.WriteLine("原始信号: " + string.Join(", ", noisySignal));
+        Console.WriteLine("中值滤波后的信号: " + string.Join(", ", filteredSignal));
+        Console.Read();
     }
 
     // 中值滤波的实现
@@ -40,5 +49,3 @@ internal class Program
         return result;
     }
 }
-
-

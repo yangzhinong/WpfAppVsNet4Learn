@@ -3,6 +3,7 @@ internal class C拟合直线
 {
     public static void Do()
     {
+        //其实可用用mathNet的  Fit.Line(xValues,yValues)拟合
         // y= mx+c
         // m = [avg(x*y)-avgX*avgY] / [avg(x^2)- (avgX)^2]
         // 输入数据，假设这是你的10个测量点
