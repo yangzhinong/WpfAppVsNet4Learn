@@ -12,7 +12,7 @@ public class LoggingAttribute: MoAttribute
         Console.WriteLine("执行方法 {0}() 开始, 参数：{1}.",
             context.Method.Name, JsonConvert.SerializeObject(context.Arguments));
     }
-
+    
     public override void OnException(MethodContext context)
     {
         Console.WriteLine("执行方法 {0}() 异常, {1}.", context.Method.Name, context.Exception.Message);

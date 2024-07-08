@@ -15,8 +15,22 @@ namespace DemoConsole
             //                        .ToList();
 
             //IL_Sum99();
-           // BuildAdderType();
-            IL_Mod();
+            // BuildAdderType();
+            //IL_Mod();
+            //DataGroup.Do();
+            //LongestIncreasingSubsequence.Do();
+            //KMeansClustering.Do();
+            //MinimizeAdjacentDifference.Do();
+            YznGroup.Do();
+            //YznGroup yznGroup= new YznGroup();
+            //var json = File.ReadAllText("c:\\1.json");
+           
+            //var lst = JsonConvert.DeserializeObject<List<MyGroup.AnalysisSource>>(json);
+            //Console.WriteLine(string.Join(",", lst.Select(x => x.No)));
+            //Console.WriteLine("-------------------------");
+           
+            //yznGroup.ReOrderAnalysisSourceByNo(lst);
+            //Console.WriteLine(string.Join(",", lst.Select(x => x.No)));
             Console.Read();
 
 

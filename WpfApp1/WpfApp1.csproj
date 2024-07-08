@@ -94,6 +94,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ButtonExt.cs" />
+    <Compile Include="DemoConverter.cs" />
     <Compile Include="MainVm.cs" />
     <Compile Include="ProjectNode.cs" />
     <Compile Include="ViewModelBase.cs" />

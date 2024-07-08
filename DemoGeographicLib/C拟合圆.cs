@@ -1,11 +1,13 @@
 ﻿using MathNet.Numerics.LinearAlgebra.Double;
 
+
 namespace DemoGeographicLib;
 internal class C拟合圆
 {
 
     public static void Do()
     {
+
         var count = 50;
         var step = 2 * Math.PI / 100;
         var rd = new Random();
@@ -34,6 +36,18 @@ internal class C拟合圆
         Console.WriteLine(result1);
         Console.WriteLine(result2);
         Console.Read();
+    }
+    // 定义点的数据结构
+    public class Point
+    {
+        public double X { get; }
+        public double Y { get; }
+
+        public Point(double x, double y)
+        {
+            X = x;
+            Y = y;
+        }
     }
     public class Circle
     {
@@ -116,6 +130,7 @@ internal class C拟合圆
         return result;
     }
 
+
     /// <summary>
     /// 线性代数求解 <br/>
     /// 因为(x-c1)^2 + (y-c2)^2= r^2
@@ -152,11 +167,13 @@ internal class C拟合圆
         var B = A.Solve(C);
         double c1 = B.At(0, 0),
             c2 = B.At(1, 0),
-            r = Math.Sqrt(B.At(2, 0) + c1 * c1 + c2 * c2);
-        var result = new Circle();
-        result.X = c1;
-        result.Y = c2;
-        result.R = r;
+            r = Math.Sqrt(B.At(2, 0) + c1 * c1 + c2 * c2);  //c3= r^2-c1^2-c2^2
+        var result = new Circle
+        {
+            X = c1,
+            Y = c2,
+            R = r
+        };
         return result;
     }
 

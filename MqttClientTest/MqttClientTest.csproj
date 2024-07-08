@@ -64,6 +64,9 @@
     <Compile Include="CollectionMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="V20240117160359.cs" />
+    <Compile Include="V2.cs" />
+    <Compile Include="V1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

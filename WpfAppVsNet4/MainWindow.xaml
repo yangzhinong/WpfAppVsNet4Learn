@@ -13,9 +13,66 @@
         xmlns:custom="clr-namespace:CustomBehaviorsLibrary;assembly=CustomBehaviorsLibrary"
         Title="MainWindow" Width="800"  Height="600">
     <Window.Resources>
+        <PathGeometry x:Key="left">
+            M34,39 V22 h-4 -4 v4.741935 4.741936 L 18.258065,23.741935 10.516129,16 18.258065,8.2580645 26,0.51612903 V 5.2580645 10 h 10 10v 23 23h -6 -6z
+        </PathGeometry>
+        <PathGeometry x:Key="right">
+                M 10,33
+                V 10
+                H 20 30
+                V 5.2580645
+                L 30,0.51612903 37.741935,8.2580645 45.483871,16 37.741935,23.741935 30,31.483871
+                V 26.741935 22
+                h -4 -4
+                v 17 17
+                h -6 -6
+                z
+        </PathGeometry>
+        <PathGeometry x:Key="straight">
+            m 22.068882,35.980322
+            v -19.9508
+            h -5.242424 -5.242424
+            l 8.242424,-8.2221476 8.242424,-8.22214789 8.242425,8.22214789 8.242424,8.2221476 -5.242424,0 -5.242425,0
+            v 19.9508 19.9508
+            h -6 -6
+            z
+        </PathGeometry>
+        <PathGeometry x:Key="utrun">
+            m 36.746003,48.423124 -5.585742,-7.990159
+            h 3.670792 3.670792
+            V 28.01336
+            c 0,-6.830783 0.335436,-13.684842 0.745414,-15.231242 1.011003,-3.8134155 4.730212,-9.2402507 7.484487,-10.9208917 2.900494,-1.76986297 8.733181,-1.76986297 11.633675,0 2.754275,1.680641 6.473484,7.1074762 7.484487,10.9208917 0.43684,1.647723 0.745414,11.260528 0.745414,23.221401
+            V 56.413284
+            H 62.435003 58.274684
+            L 58.045397,37.03983
+            C 57.83971,19.660375 57.678404,17.450225 56.478168,15.566276
+            c -1.818104,-2.853784 -6.040889,-2.854885 -7.856402,-0.002 -1.109244,1.743028 -1.378183,4.024633 -1.589328,13.483395
+            l -0.254151,11.385343
+            h 3.746593 3.746592
+            l -5.585741,7.99011
+            c -3.072158,4.394588 -5.758597,7.99016 -5.969864,7.99016 -0.211268,0 -2.897706,-3.595572 -5.969864,-7.99016
+            z
+        </PathGeometry>
     </Window.Resources>
+    
+    
 
     <Grid>
+
+        <StackPanel Orientation="Horizontal">
+           
+            <Path Data="{StaticResource left}" Name="xx" Fill="Green"  />
+            <Path Data="{StaticResource right}" Fill="Red"  />
+            <Path Data="{StaticResource straight}" Fill="Red" />
+                <Grid>
+                    <Path Data="{StaticResource right}" HorizontalAlignment="Center" Fill="Red"  />
+                    <Path Data="{StaticResource straight}" Fill="red" HorizontalAlignment="Center" Margin="-25,0,0,0" />
+                </Grid>
+            
+            <Path Data="{StaticResource right}" Fill="Red"  />
+            <Path Data="{StaticResource utrun}" Fill="Green"  />
+           
+        </StackPanel>
        
         <Canvas Width="20" RenderTransformOrigin="0.5,0.5" Name="_canvas">
             <Canvas.RenderTransform>
@@ -43,6 +100,8 @@
                     <custom:DragInCanvasBehavior />
                 </i:Interaction.Behaviors>
             </Ellipse>
+
+            
 
             <Slider Canvas.Left="20" Canvas.Top="20" Width="100" Ticks="1,2,4" IsSelectionRangeEnabled="True" TickPlacement="TopLeft" />
         </Canvas>

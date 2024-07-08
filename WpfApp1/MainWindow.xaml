@@ -14,7 +14,7 @@
                     <ControlTemplate TargetType="TreeView">
                         <Border Name="Border" Background="Transparent" BorderThickness="0">
                             <ScrollViewer Background="Transparent" Focusable="False" CanContentScroll="False" BorderThickness="0">
-                                <ItemsPresenter />
+                                <ItemsPresenter  />
                             </ScrollViewer>
                         </Border>
                     </ControlTemplate>
@@ -34,17 +34,17 @@
                 Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
     </Grid>-->
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="350" Width="550">
-        <TreeView x:Name="trvMain" Margin="8,0,0,5" IsEnabled="{Binding EnableControl.TreeView}" Grid.Row="2"
-                        ItemsSource="{Binding ProjectList, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
-                        Style="{StaticResource TreeView_NoFrame_Style}">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Child,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                    <StackPanel Height="28" Margin="10,2,0,2" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Margin="6,5,6,5" Text="{Binding NodeName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-    </Grid>
+    <Canvas>
+        <Button Canvas.Top="20" Canvas.Left="20" Padding="5" local:ButtonExt.Round="5" >OK</Button>
+        <TextBlock>
+            <TextBlock.Text>
+                <!-- StringFormat和Converter选择其中一个 -->
+                <MultiBinding StringFormat="{}{1},{0}" Converter="{StaticResource ValueInStockConverter}" >
+                    <Binding Path="FirstName" />
+                    <Binding Path="LastName" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        
+    </Canvas>
 </Window>
